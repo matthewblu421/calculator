@@ -1,0 +1,48 @@
+.buttoncontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 250px;
+  flex-wrap: wrap;
+  gap: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+}
+
+.regbutton {
+  width: 75px;
+}
+
+.zerobutton {
+  width: 150px;
+}
+
+.textbox {
+  text-align: end;
+  font-size: 30px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  width: 300px;
+  height: 35px;
+  background-color: rgb(220, 230, 184);
+  border: 1px solid black;
+}
+
+button {
+  height: 50px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  gap: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
