@@ -1,4 +1,4 @@
-let displayValue = parseInt(document.querySelector(".textbox").textContent);
+let displayValue = parseFloat(document.querySelector(".textbox").textContent);
 console.log(displayValue);
 let firstValue = displayValue;
 console.log(firstValue);
@@ -193,22 +193,43 @@ const nineListener = function () {
 };
 nineListener();
 
+//period aka decimal listener function
+const dotListener = function () {
+  const dotListen = document.getElementById("dot");
+  dotListen.addEventListener("click", function () {
+    let box = document.querySelector(".textbox");
+    if (box.textContent === "0" || operationClicked === true) {
+      box.textContent = "0";
+    }
+    if(!box.textContent.includes(".")) {
+    box.textContent = `${box.textContent}.`;
+    }
+    displayValue = box.textContent;
+    operationClicked = false;
+  });
+};
+dotListener();
+
+//clear button aka AC
 const clearListener = function () {
     const acListen = document.getElementById("ac");
     acListen.addEventListener("click", function() {
         let box = document.querySelector(".textbox");
         box.textContent = "0";        
         displayValue = box.textContent;
+        firstValue = "0";
+        operation = "none";
         operationClicked = false;
     });
 }
 clearListener();
 
+//add, subtract, divide, multiply buttons
 const addListener = function () {
   const addListen = document.getElementById("plus");
   addListen.addEventListener("click", function() {
     let box = document.querySelector(".textbox");
-    firstValue = parseInt(box.textContent);
+    firstValue = parseFloat(box.textContent);
     console.log(firstValue);
     operation = "add";
     operationClicked = true;
@@ -220,7 +241,7 @@ const subListener = function () {
   const subListen = document.getElementById("dash");
   subListen.addEventListener("click", function() {
     let box = document.querySelector(".textbox");
-    firstValue = parseInt(box.textContent);
+    firstValue = parseFloat(box.textContent);
     console.log(firstValue);
     operation = "sub";
     operationClicked = true;
@@ -228,26 +249,61 @@ const subListener = function () {
 }
 subListener();
 
+const divideListener = function () {
+  const divideListen = document.getElementById("slash");
+  divideListen.addEventListener("click", function() {
+    let box = document.querySelector(".textbox");
+    firstValue = parseFloat(box.textContent);
+    console.log(firstValue);
+    operation = "divide";
+    operationClicked = true;
+  });
+}
+divideListener();
+
+const multiplyListener = function () {
+  const multiplyListen = document.getElementById("star");
+  multiplyListen.addEventListener("click", function() {
+    let box = document.querySelector(".textbox");
+    firstValue = parseFloat(box.textContent);
+    console.log(firstValue);
+    operation = "multiply";
+    operationClicked = true;
+  });
+}
+multiplyListener();
+
+
+
 const equalsListener = function () {
   const equalsListen = document.getElementById("equals");
   equalsListen.addEventListener("click", function() {
     let box = document.querySelector(".textbox");
-    let recentValue = parseInt(box.textContent);
+    let recentValue = parseFloat(box.textContent);
     if(operation === "add"){
       box.textContent = add(firstValue, recentValue);
     }
     if(operation === "sub"){
       box.textContent = subtract(firstValue, recentValue);
     }
+    if(operation === "divide"){
+      box.textContent = divide(firstValue, recentValue);
+    }
+    if(operation === "multiply"){
+      box.textContent = multiply(firstValue, recentValue);
+    }
 
     operationClicked = true;
     firstValue = "";
   })
 }
+
+
+
 equalsListener();
 operation = "none";
 operationClicked = false;
-displayValue = parseInt(document.querySelector(".textbox").textContent);
+displayValue = parseFloat(document.querySelector(".textbox").textContent);
 firstValue = displayValue;
 
     
