@@ -19,13 +19,27 @@
   width: 150px;
 }
 
+.numbutton, #dot{
+  background-color:rgb(105, 88, 182);
+}
+
+.op {
+  background-color:rgb(185, 134, 39);
+}
+
+.weird {
+  background-color:rgb(62, 235, 134);
+}
+
+
+
 .textbox {
   text-align: end;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  width: 300px;
+  width: 298px;
   height: 35px;
-  background-color: rgb(220, 230, 184);
+  background-color: rgb(178, 179, 175);
   border: 1px solid black;
 }
 
@@ -36,13 +50,23 @@ button {
   padding-top: 0;
   padding-bottom: 0;
   gap: 0;
+  font-size: 16px;
+  box-sizing:border-box;
+  border: 1px solid black;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .maincontainer {
+ 
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.containertwo{
+  border: 4px solid black;
+  border-radius: 6px;
 }
