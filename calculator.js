@@ -45,7 +45,7 @@ const zeroListener = function () {
   const zeroListen = document.getElementById("0");
   zeroListen.addEventListener("click", function () {
     let box = document.querySelector(".textbox");
-    if (box.textContent === "0" || operationClicked === true) {
+    if (box.textContent === "0" || box.textContent === "-0" || operationClicked === true ) {
       box.textContent = "";
     }
     box.textContent = `${box.textContent}0`;
@@ -60,7 +60,7 @@ const oneListener = function () {
   const oneListen = document.getElementById("1");
   oneListen.addEventListener("click", function () {
     let box = document.querySelector(".textbox");
-    if (box.textContent === "0" || operationClicked === true) {
+        if (box.textContent === "0" || box.textContent === "-0" || operationClicked === true ) {
       box.textContent = "";
     }
     box.textContent = `${box.textContent}1`;
@@ -78,7 +78,7 @@ const twoListener = function () {
   const twoListen = document.getElementById("2");
   twoListen.addEventListener("click", function () {
     let box = document.querySelector(".textbox");
-    if (box.textContent === "0" || operationClicked === true) {
+        if (box.textContent === "0" || box.textContent === "-0" || operationClicked === true ) {
       box.textContent = "";
     }
     box.textContent = `${box.textContent}2`;
@@ -93,7 +93,7 @@ const threeListener = function () {
   const threeListen = document.getElementById("3");
   threeListen.addEventListener("click", function () {
     let box = document.querySelector(".textbox");
-    if (box.textContent === "0" || operationClicked === true) {
+        if (box.textContent === "0" || box.textContent === "-0" || operationClicked === true ) {
       box.textContent = "";
     }
     box.textContent = `${box.textContent}3`;
@@ -108,7 +108,7 @@ const fourListener = function () {
   const fourListen = document.getElementById("4");
   fourListen.addEventListener("click", function () {
     let box = document.querySelector(".textbox");
-    if (box.textContent === "0" || operationClicked === true) {
+        if (box.textContent === "0" || box.textContent === "-0" || operationClicked === true ) {
       box.textContent = "";
     }
     box.textContent = `${box.textContent}4`;
@@ -123,7 +123,7 @@ const fiveListener = function () {
   const fiveListen = document.getElementById("5");
   fiveListen.addEventListener("click", function () {
     let box = document.querySelector(".textbox");
-    if (box.textContent === "0" || operationClicked === true) {
+        if (box.textContent === "0" || box.textContent === "-0" || operationClicked === true ) {
       box.textContent = "";
     }
     box.textContent = `${box.textContent}5`;
@@ -138,7 +138,7 @@ const sixListener = function () {
   const sixListen = document.getElementById("6");
   sixListen.addEventListener("click", function () {
     let box = document.querySelector(".textbox");
-    if (box.textContent === "0" || operationClicked === true) {
+        if (box.textContent === "0" || box.textContent === "-0" || operationClicked === true ) {
       box.textContent = "";
     }
     box.textContent = `${box.textContent}6`;
@@ -153,7 +153,7 @@ const sevenListener = function () {
   const sevenListen = document.getElementById("7");
   sevenListen.addEventListener("click", function () {
     let box = document.querySelector(".textbox");
-    if (box.textContent === "0" || operationClicked === true) {
+        if (box.textContent === "0" || box.textContent === "-0" || operationClicked === true ) {
       box.textContent = "";
     }
     box.textContent = `${box.textContent}7`;
@@ -168,7 +168,7 @@ const eightListener = function () {
   const eightListen = document.getElementById("8");
   eightListen.addEventListener("click", function () {
     let box = document.querySelector(".textbox");
-    if (box.textContent === "0" || operationClicked === true) {
+        if (box.textContent === "0" || box.textContent === "-0" || operationClicked === true ) {
       box.textContent = "";
     }
     box.textContent = `${box.textContent}8`;
@@ -183,7 +183,7 @@ const nineListener = function () {
   const nineListen = document.getElementById("9");
   nineListen.addEventListener("click", function () {
     let box = document.querySelector(".textbox");
-    if (box.textContent === "0" || operationClicked === true) {
+        if (box.textContent === "0" || box.textContent === "-0" || operationClicked === true ) {
       box.textContent = "";
     }
     box.textContent = `${box.textContent}9`;
@@ -198,7 +198,7 @@ const dotListener = function () {
   const dotListen = document.getElementById("dot");
   dotListen.addEventListener("click", function () {
     let box = document.querySelector(".textbox");
-    if (box.textContent === "0" || operationClicked === true) {
+        if (box.textContent === "0" || box.textContent === "-0" || operationClicked === true ) {
       box.textContent = "0";
     }
     if(!box.textContent.includes(".")) {
@@ -209,6 +209,27 @@ const dotListener = function () {
   });
 };
 dotListener();
+
+
+const negative = function () {
+  const negListen = document.getElementById("plusorminus");
+  negListen.addEventListener("click", function () {
+    let box = document.querySelector(".textbox");
+    if(box.textContent === "0") {
+      displayValue = box.textContent;
+      operationClicked = false;
+    } else {
+      let negValue = (parseFloat(box.textContent) * -1);
+      box.textContent = `${negValue}`;
+      displayValue = box.textContent;
+      operationClicked = false;
+    }
+  
+  });
+};
+negative();
+
+
 
 //clear button aka AC
 const clearListener = function () {
@@ -273,6 +294,19 @@ const multiplyListener = function () {
 }
 multiplyListener();
 
+const pctListener = function () {
+  const pctListen = document.getElementById("percent");
+  pctListen.addEventListener("click", function() {
+    let box = document.querySelector(".textbox");
+    firstValue = parseFloat(box.textContent);
+    box.textContent = (firstValue / 100);
+    operation = "percent";
+    operationClicked = true;
+  });
+}
+pctListener();
+
+
 
 
 const equalsListener = function () {
@@ -292,6 +326,8 @@ const equalsListener = function () {
     if(operation === "multiply"){
       box.textContent = multiply(firstValue, recentValue);
     }
+
+   
 
     operationClicked = true;
     firstValue = "";
